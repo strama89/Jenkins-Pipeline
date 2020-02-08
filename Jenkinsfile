@@ -48,7 +48,7 @@ pipeline{
 			
 			stage('Run docker image loaded in the previous stage') {
 			steps {
-                sshCommand remote: remote, command: "docker run --rm -it -p 8000:8000 datawire/hello-world"
+                sshCommand remote: remote, command: "docker run --rm -it -p 8000:8000 example/hello-world2"
 				}
             }
     	}
