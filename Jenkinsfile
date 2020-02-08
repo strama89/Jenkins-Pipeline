@@ -48,7 +48,7 @@ pipeline{
 			
 			stage('Run docker image loaded in the previous stage') {
 			steps {
-                sshCommand remote: remote, command: "docker run --rm -t -p 5000:5000 example/example-container"
+                sshCommand remote: remote, command: "docker run --rm -d -p 5000:5000 example/example-container"
 				}
             }
     	}
