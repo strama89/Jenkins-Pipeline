@@ -36,7 +36,7 @@ pipeline{
     		stage('Transfer file to Slave 1') {
     			steps {
     				dir("save-images") {
-								sh 'sshpass -p "qwerty" scp -v -o StrictHostKeyChecking=no example-container.tar jenkins@slave1.ansible:/tmp/'
+					sh 'sshpass -p "qwerty" scp -v -o StrictHostKeyChecking=no example-container.tar jenkins@slave1.ansible:/tmp/'
 							   }				
 					}
 			}
@@ -48,7 +48,7 @@ pipeline{
 			
 			stage('Run docker image loaded in the previous stage') {
 			steps {
-                sshCommand remote: remote, command: "docker run --rm -it -p 5000:5000 example/example-container"
+                sshCommand remote: remote, command: "docker run --rm -t -p 5000:5000 example/example-container"
 				}
             }
     	}
